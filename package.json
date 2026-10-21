@@ -1,0 +1,26 @@
+{
+  "name": "astro-chat",
+  "version": "1.0.0",
+  "description": "AstroChat - Premium AI Astrology Consultation & Live Astrologer Platform",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "astrology",
+    "astro-chat",
+    "horoscope",
+    "kundli",
+    "tarot",
+    "gemini-ai",
+    "vercel"
+  ],
+  "author": "AstroChat",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}
