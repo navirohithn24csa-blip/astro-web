@@ -14,12 +14,15 @@ export const GoogleReviews: React.FC = () => {
   };
 
   return (
-    <section id="reviews" className="py-20 bg-white border-t border-slate-100 overflow-hidden">
+    <section id="reviews" className="py-20 bg-gradient-to-b from-[#08041a] via-[#10072b] to-[#08041a] border-t border-purple-900/30 overflow-hidden relative">
+      {/* Background Cosmic Star Dust Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-900/15 rounded-full blur-3xl pointer-events-none -z-10" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header with Google Play Branding */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-950/80 border border-purple-500/40 shadow-sm">
             {/* Google Multicolor 'G' */}
             <svg className="w-4 h-4" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
@@ -27,14 +30,14 @@ export const GoogleReviews: React.FC = () => {
               <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 10.04 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
               <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.36 0 3.27 2.56 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
             </svg>
-            <span className="text-xs font-bold text-slate-700 tracking-wide">Google Play Reviews</span>
+            <span className="text-xs font-bold text-purple-200 tracking-wide">Google Play Reviews</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#151515] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
             What our users say
           </h2>
 
-          <p className="text-base text-slate-500">
+          <p className="text-base text-slate-400">
             Real feedback from seekers across India finding life clarity, lucky timings, and accurate Kundli predictions.
           </p>
         </div>
@@ -48,16 +51,16 @@ export const GoogleReviews: React.FC = () => {
             >
               {SAMPLE_REVIEWS.map((review) => (
                 <div key={review.id} className="w-full shrink-0 px-4">
-                  <div className="bg-[#FFFDF9] border border-amber-200/60 rounded-3xl p-8 sm:p-10 shadow-lg shadow-amber-900/5 text-center flex flex-col items-center space-y-4">
+                  <div className="bg-[#13082e]/90 border border-purple-500/30 rounded-3xl p-8 sm:p-10 shadow-[0_15px_50px_rgba(0,0,0,0.6)] backdrop-blur-xl text-center flex flex-col items-center space-y-4">
                     {/* Stars */}
                     <div className="flex items-center gap-1 text-amber-400">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-amber-400" />
+                        <Star key={i} className="w-5 h-5 fill-amber-400 filter drop-shadow-[0_0_6px_rgba(251,191,36,0.6)]" />
                       ))}
                     </div>
 
                     {/* Review Quote */}
-                    <p className="text-lg sm:text-xl font-medium text-slate-800 leading-relaxed max-w-2xl italic">
+                    <p className="text-lg sm:text-xl font-medium text-purple-100 leading-relaxed max-w-2xl italic">
                       "{review.text}"
                     </p>
 
@@ -66,11 +69,11 @@ export const GoogleReviews: React.FC = () => {
                       <img
                         src={review.avatar}
                         alt={review.name}
-                        className="w-12 h-12 rounded-full object-cover border-2 border-purple-200 shadow-sm"
+                        className="w-12 h-12 rounded-full object-cover border-2 border-amber-400/80 shadow-md"
                       />
                       <div className="text-left">
-                        <h4 className="font-extrabold text-[#151515] text-base">{review.name}</h4>
-                        <p className="text-xs text-slate-500 font-medium">{review.city} &bull; <span className="text-[#7026CE] font-semibold">{review.tag}</span></p>
+                        <h4 className="font-bold text-white text-base">{review.name}</h4>
+                        <p className="text-xs text-slate-400 font-medium">{review.city} &bull; <span className="text-amber-300 font-semibold">{review.tag}</span></p>
                       </div>
                     </div>
                   </div>
@@ -84,7 +87,7 @@ export const GoogleReviews: React.FC = () => {
             type="button"
             onClick={prevReview}
             aria-label="Previous review"
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-6 w-12 h-12 rounded-full bg-white border border-slate-200 text-slate-700 shadow-md flex items-center justify-center hover:bg-slate-50 hover:text-[#7026CE] transition"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-6 w-12 h-12 rounded-full bg-[#180a3a] border border-purple-500/40 text-white shadow-xl flex items-center justify-center hover:bg-[#28125e] hover:text-amber-300 transition"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
@@ -92,7 +95,7 @@ export const GoogleReviews: React.FC = () => {
             type="button"
             onClick={nextReview}
             aria-label="Next review"
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-6 w-12 h-12 rounded-full bg-white border border-slate-200 text-slate-700 shadow-md flex items-center justify-center hover:bg-slate-50 hover:text-[#7026CE] transition"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-6 w-12 h-12 rounded-full bg-[#180a3a] border border-purple-500/40 text-white shadow-xl flex items-center justify-center hover:bg-[#28125e] hover:text-amber-300 transition"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
@@ -107,8 +110,8 @@ export const GoogleReviews: React.FC = () => {
                 aria-label={`Go to slide ${i + 1}`}
                 className={`transition-all ${
                   i === currentIndex
-                    ? 'w-8 h-2.5 bg-[#7026CE] rounded-full'
-                    : 'w-2.5 h-2.5 bg-slate-200 hover:bg-slate-300 rounded-full'
+                    ? 'w-8 h-2.5 bg-amber-400 rounded-full shadow-[0_0_10px_rgba(251,191,36,0.6)]'
+                    : 'w-2.5 h-2.5 bg-purple-900/80 hover:bg-purple-700 rounded-full'
                 }`}
               />
             ))}
@@ -121,12 +124,12 @@ export const GoogleReviews: React.FC = () => {
             href={PLAY_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-300 hover:border-slate-400 text-slate-800 font-bold text-sm shadow-sm transition hover:scale-105"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#14082e] border border-purple-500/40 hover:border-amber-400 text-amber-300 hover:text-white font-bold text-sm shadow-md transition hover:scale-105"
           >
             <span>Read Reviews on Google Play</span>
-            <ExternalLink className="w-4 h-4 text-slate-500" />
+            <ExternalLink className="w-4 h-4 text-slate-400" />
           </a>
-          <p className="text-[11px] text-slate-400 font-normal">
+          <p className="text-[11px] text-slate-500 font-normal">
             * Sample user experiences shown above for illustration. Real ratings and reviews available on the Google Play Store.
           </p>
         </div>

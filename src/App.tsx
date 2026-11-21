@@ -10,52 +10,28 @@ import { StickyDownloadBar } from './components/StickyDownloadBar';
 import { Footer } from './components/Footer';
 
 // 12 Individual Screen Components
-import { Screen1Home } from './components/screens/Screen1Home';
 import { Screen2LifePrediction } from './components/screens/Screen2LifePrediction';
 import { Screen3PanchaPakshi } from './components/screens/Screen3PanchaPakshi';
 import { Screen4GoodTime } from './components/screens/Screen4GoodTime';
 import { Screen5MatchMaker } from './components/screens/Screen5MatchMaker';
 import { Screen6LiveAstrologers } from './components/screens/Screen6LiveAstrologers';
 import { Screen7Matrimony } from './components/screens/Screen7Matrimony';
+import { Screen8AstrologerChat } from './components/screens/Screen8AstrologerChat';
 import { Screen9HowItWorks } from './components/screens/Screen9HowItWorks';
 import { Screen10OfferGate } from './components/screens/Screen10OfferGate';
 
 export const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white text-[#151515] flex flex-col font-sans selection:bg-purple-100 selection:text-purple-900">
+    <div className="min-h-screen bg-[#060314] text-white flex flex-col font-sans selection:bg-purple-900 selection:text-amber-300">
       
       {/* 1. Sticky Navigation Bar */}
       <Navbar />
 
       <main className="flex-1">
-        {/* 2. Hero Section */}
+        {/* 2. Hero Section: Showcases Screen 1 (Home) FIRST at top, with marketing text below */}
         <HeroSection />
 
-        {/* 3. Screen 1 Showcase: Home Dashboard */}
-        <FeatureSection
-          sectionId="features"
-          pillTag="Home Dashboard"
-          title="All of Vedic Astrology. In one app."
-          subtitle="Ask the stars. Get real answers."
-          description="Access life prediction, Pancha Pakshi, lucky time heatmap, couple match maker, verified astrologers, and horoscope matrimony right from your fingertips."
-          checklist={[
-            "First chat 100% free",
-            "First month free access",
-            "Vedic calculation algorithms",
-            "Verified live astrologers"
-          ]}
-          ctaText="Get Started Free"
-          ctaUrl={PLAY_STORE_URL}
-          offerText="Try Free in Astro Chat"
-          reversed={false}
-          bgColor="bg-white"
-        >
-          <PhoneMockup>
-            <Screen1Home />
-          </PhoneMockup>
-        </FeatureSection>
-
-        {/* 4. Screen 2 Showcase: Life Prediction */}
+        {/* 3. Screen 2 Showcase: Life Prediction */}
         <FeatureSection
           sectionId="life-prediction"
           pillTag="Life Prediction"
@@ -72,14 +48,14 @@ export const App: React.FC = () => {
           ctaUrl={PLAY_STORE_URL}
           offerText="Try free in Astro Chat"
           reversed={true}
-          bgColor="bg-[#FAF8FF]"
+          bgColor="bg-gradient-to-b from-[#080418] via-[#0e0728] to-[#070316]"
         >
           <PhoneMockup>
             <Screen2LifePrediction />
           </PhoneMockup>
         </FeatureSection>
 
-        {/* 5. Screen 3 Showcase: Pancha Pakshi */}
+        {/* 4. Screen 3 Showcase: Pancha Pakshi */}
         <FeatureSection
           sectionId="pancha-pakshi"
           pillTag="Ancient Tamil Wisdom"
@@ -95,14 +71,14 @@ export const App: React.FC = () => {
           ctaText="Check Today's Status"
           ctaUrl={PLAY_STORE_URL}
           reversed={false}
-          bgColor="bg-white"
+          bgColor="bg-gradient-to-b from-[#070316] via-[#10082d] to-[#080419]"
         >
           <PhoneMockup>
             <Screen3PanchaPakshi />
           </PhoneMockup>
         </FeatureSection>
 
-        {/* 6. Screen 4 Showcase: Good Time Finder */}
+        {/* 5. Screen 4 Showcase: Good Time Finder */}
         <FeatureSection
           sectionId="good-time"
           pillTag="Auspicious Timings"
@@ -118,14 +94,14 @@ export const App: React.FC = () => {
           ctaText="Find My Lucky Time"
           ctaUrl={PLAY_STORE_URL}
           reversed={true}
-          bgColor="bg-[#FFFDF9]"
+          bgColor="bg-gradient-to-b from-[#080419] via-[#120932] to-[#070317]"
         >
           <PhoneMockup>
             <Screen4GoodTime />
           </PhoneMockup>
         </FeatureSection>
 
-        {/* 7. Screen 5 Showcase: Match Maker */}
+        {/* 6. Screen 5 Showcase: Match Maker */}
         <FeatureSection
           sectionId="match-maker"
           pillTag="Kundli Milan"
@@ -141,14 +117,14 @@ export const App: React.FC = () => {
           ctaText="Check Compatibility"
           ctaUrl={PLAY_STORE_URL}
           reversed={false}
-          bgColor="bg-white"
+          bgColor="bg-gradient-to-b from-[#070317] via-[#11072e] to-[#08041a]"
         >
           <PhoneMockup>
             <Screen5MatchMaker />
           </PhoneMockup>
         </FeatureSection>
 
-        {/* 8. Screen 6 Showcase: Live Astrologers */}
+        {/* 7. Screen 6 Showcase: Live Astrologers */}
         <FeatureSection
           sectionId="astrologers"
           pillTag="Verified Experts"
@@ -164,14 +140,14 @@ export const App: React.FC = () => {
           ctaText="Chat with Astrologer"
           ctaUrl={PLAY_STORE_URL}
           reversed={true}
-          bgColor="bg-[#F8F5FF]"
+          bgColor="bg-gradient-to-b from-[#08041a] via-[#140835] to-[#070318]"
         >
           <PhoneMockup>
             <Screen6LiveAstrologers />
           </PhoneMockup>
         </FeatureSection>
 
-        {/* 9. Screen 7 Showcase: Matrimony */}
+        {/* 8. Screen 7 Showcase: Matrimony */}
         <FeatureSection
           sectionId="matrimony"
           pillTag="Horoscope Matrimony"
@@ -187,10 +163,34 @@ export const App: React.FC = () => {
           ctaText="Browse Matrimony Profiles"
           ctaUrl={PLAY_STORE_URL}
           reversed={false}
-          bgColor="bg-white"
+          bgColor="bg-gradient-to-b from-[#070318] via-[#120830] to-[#08041b]"
         >
           <PhoneMockup>
             <Screen7Matrimony />
+          </PhoneMockup>
+        </FeatureSection>
+
+        {/* 9. Screen 8 Showcase: Astrologer Consultation Chat */}
+        <FeatureSection
+          sectionId="chat"
+          pillTag="Private 1-on-1 Consultation"
+          title="Instant Astrologer Chat."
+          subtitle="Ask any question. Get honest, confidential answers."
+          description="Direct private chat room with your chosen astrologer. Real-time translation across English, Hindi, Tamil, Telugu, and Kannada, voice notes support, and clear remedies you can follow immediately."
+          checklist={[
+            "First consultation question 100% FREE",
+            "Instant multi-language translation",
+            "Audio voice note support",
+            "Confidential end-to-end private rooms"
+          ]}
+          ctaText="Download to Start Chatting"
+          ctaUrl={PLAY_STORE_URL}
+          offerText="First chat is FREE"
+          reversed={true}
+          bgColor="bg-gradient-to-b from-[#08041b] via-[#130833] to-[#070316]"
+        >
+          <PhoneMockup>
+            <Screen8AstrologerChat />
           </PhoneMockup>
         </FeatureSection>
 
@@ -208,8 +208,8 @@ export const App: React.FC = () => {
           ]}
           ctaText="Download & Get Started"
           ctaUrl={PLAY_STORE_URL}
-          reversed={true}
-          bgColor="bg-[#FAF8FF]"
+          reversed={false}
+          bgColor="bg-gradient-to-b from-[#070316] via-[#11072d] to-[#080419]"
         >
           <PhoneMockup>
             <Screen9HowItWorks />
@@ -231,8 +231,8 @@ export const App: React.FC = () => {
           ]}
           ctaText="Download Astro Chat – Free"
           ctaUrl={PLAY_STORE_URL}
-          reversed={false}
-          bgColor="bg-white"
+          reversed={true}
+          bgColor="bg-gradient-to-b from-[#080419] via-[#140938] to-[#08041a]"
         >
           <PhoneMockup>
             <Screen10OfferGate />
