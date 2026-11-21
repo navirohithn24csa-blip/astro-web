@@ -1,5 +1,5 @@
 import React from 'react';
-import { PLAY_STORE_URL, APP_STORE_URL } from '../data/config';
+import { PLAY_STORE_URL } from '../data/config';
 import { PhoneMockup } from './PhoneMockup';
 import { Screen12Download } from './screens/Screen12Download';
 import { QrCode, CheckCircle2 } from 'lucide-react';
@@ -52,38 +52,23 @@ export const DownloadCTA: React.FC = () => {
 
             {/* Badges & QR Code */}
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5">
-              <div className="flex flex-col gap-2.5">
-                <a
-                  href={PLAY_STORE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 bg-[#14082e] hover:bg-[#1f0d45] text-white px-5 py-3 rounded-2xl border border-purple-500/40 transition shadow-lg hover:scale-105"
-                >
-                  <svg className="w-6 h-6 shrink-0" viewBox="0 0 24 24">
-                    <path d="M3 20.5v-17c0-.85.9-1.35 1.6-.9l14 8.5c.7.45.7 1.45 0 1.9l-14 8.4c-.7.45-1.6-.05-1.6-.9z" fill="#00E676" />
-                    <path d="M14.5 12L3 20.5c.4.3.9.3 1.4 0l12-7.3-1.9-1.2z" fill="#FF3D00" />
-                    <path d="M3 3.5c0-.4.3-.8.7-.9l12.7 7.7-1.9 1.2-11.5-8z" fill="#00B0FF" />
-                    <path d="M18.6 11.1l-2.2-1.3-2 1.2 2 1.2 2.2-1.3c.6-.4.6-1 0-1.4z" fill="#FFC107" />
-                  </svg>
-                  <div className="leading-none text-left">
-                    <span className="text-[9px] text-slate-400 block uppercase font-medium">GET IT ON</span>
-                    <span className="text-sm font-bold text-white block">Google Play</span>
-                  </div>
-                </a>
-
-                <a
-                  href={APP_STORE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 bg-[#14082e] hover:bg-[#1f0d45] text-white px-5 py-3 rounded-2xl border border-purple-500/40 transition shadow-lg hover:scale-105"
-                >
-                  <span className="text-2xl leading-none">🍎</span>
-                  <div className="leading-none text-left">
-                    <span className="text-[9px] text-slate-400 block font-medium">Download on the</span>
-                    <span className="text-sm font-bold text-white block">App Store</span>
-                  </div>
-                </a>
-              </div>
+              <a
+                href={PLAY_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-[#14082e] hover:bg-[#1f0d45] text-white px-6 py-4 rounded-2xl border border-purple-500/40 transition shadow-lg hover:scale-105"
+              >
+                <svg className="w-7 h-7 shrink-0" viewBox="0 0 24 24">
+                  <path d="M3 20.5v-17c0-.85.9-1.35 1.6-.9l14 8.5c.7.45.7 1.45 0 1.9l-14 8.4c-.7.45-1.6-.05-1.6-.9z" fill="#00E676" />
+                  <path d="M14.5 12L3 20.5c.4.3.9.3 1.4 0l12-7.3-1.9-1.2z" fill="#FF3D00" />
+                  <path d="M3 3.5c0-.4.3-.8.7-.9l12.7 7.7-1.9 1.2-11.5-8z" fill="#00B0FF" />
+                  <path d="M18.6 11.1l-2.2-1.3-2 1.2 2 1.2 2.2-1.3c.6-.4.6-1 0-1.4z" fill="#FFC107" />
+                </svg>
+                <div className="leading-none text-left">
+                  <span className="text-[10px] text-slate-400 block uppercase font-medium">GET IT ON</span>
+                  <span className="text-base font-bold text-white block">Google Play</span>
+                </div>
+              </a>
 
               {/* QR Code Container */}
               <div className="bg-[#150a33]/90 border-2 border-purple-500/40 p-3 rounded-2xl shadow-xl flex items-center gap-3 backdrop-blur-xl">

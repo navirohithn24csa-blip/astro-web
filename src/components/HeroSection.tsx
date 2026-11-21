@@ -1,5 +1,5 @@
 import React from 'react';
-import { PLAY_STORE_URL, APP_STORE_URL } from '../data/config';
+import { PLAY_STORE_URL } from '../data/config';
 import { PhoneMockup } from './PhoneMockup';
 import { Screen1Home } from './screens/Screen1Home';
 import { Sparkles, Download, CheckCircle2, Star } from 'lucide-react';
@@ -91,7 +91,7 @@ export const HeroSection: React.FC = () => {
                 href={PLAY_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 bg-[#0f0724] hover:bg-[#1a0c3b] text-white px-5 py-2.5 rounded-2xl border border-purple-500/30 transition shadow-lg hover:scale-105"
+                className="flex items-center gap-2.5 bg-[#0f0724] hover:bg-[#1a0c3b] text-white px-6 py-3 rounded-2xl border border-purple-500/30 transition shadow-lg hover:scale-105"
               >
                 <svg className="w-6 h-6 shrink-0" viewBox="0 0 24 24">
                   <path d="M3 20.5v-17c0-.85.9-1.35 1.6-.9l14 8.5c.7.45.7 1.45 0 1.9l-14 8.4c-.7.45-1.6-.05-1.6-.9z" fill="#00E676" />
@@ -100,22 +100,8 @@ export const HeroSection: React.FC = () => {
                   <path d="M18.6 11.1l-2.2-1.3-2 1.2 2 1.2 2.2-1.3c.6-.4.6-1 0-1.4z" fill="#FFC107" />
                 </svg>
                 <div className="leading-none text-left">
-                  <span className="text-[8px] text-slate-400 block uppercase font-medium">GET IT ON</span>
-                  <span className="text-xs font-bold text-white block">Google Play</span>
-                </div>
-              </a>
-
-              {/* App Store Button */}
-              <a
-                href={APP_STORE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2.5 bg-[#0f0724] hover:bg-[#1a0c3b] text-white px-5 py-2.5 rounded-2xl border border-purple-500/30 transition shadow-lg hover:scale-105"
-              >
-                <span className="text-xl leading-none">🍎</span>
-                <div className="leading-none text-left">
-                  <span className="text-[8px] text-slate-400 block font-medium">Download on the</span>
-                  <span className="text-xs font-bold text-white block">App Store</span>
+                  <span className="text-[9px] text-slate-400 block uppercase font-medium">GET IT ON</span>
+                  <span className="text-sm font-bold text-white block">Google Play</span>
                 </div>
               </a>
             </div>
