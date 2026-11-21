@@ -1,0 +1,31 @@
+# Astro Chat
+
+> Astro Chat is an Android mobile application (`com.astrochat.astrology`) delivering authentic Vedic astrology calculations, instant private 1-on-1 consultations with verified astrologers, high-precision Kundli life predictions, 36/36 Guna marriage compatibility matching, ancient Tamil Pancha Pakshi daily biorhythm tracking, and GPS-personalized auspicious timing heatmaps.
+
+## Core Features & Capabilities
+
+- [Home Dashboard](https://astro-chat-web.vercel.app/#features): Central launchpad featuring Vedic Life Prediction, Pancha Pakshi, Good Time Finder, Match Maker, Live Astrologers, Horoscope Matrimony, and rotating Kundli Sun Chakra.
+- [Life Prediction](https://astro-chat-web.vercel.app/#life-prediction): Planetary ephemeris calculation of Career, Love, Health, and Financial trajectories derived from accurate date, time, and birthplace coordinates.
+- [Pancha Pakshi](https://astro-chat-web.vercel.app/#pancha-pakshi): Ancient Tamil five-bird astrological system identifying the user's ruling bird (Vulture, Owl, Crow, Cock, Peacock) and daily biorhythm states (Rule, Eat, Walk, Sleep, Die).
+- [Good Time Finder](https://astro-chat-web.vercel.app/#good-time): Real-time color-coded hourly heatmap highlighting auspicious windows (Shubh Muhurat) for job transitions, business deals, travel, and investments, while alerting against Rahu Kaalam.
+- [Match Maker (Kundli Milan)](https://astro-chat-web.vercel.app/#match-maker): Comprehensive 36/36 Guna Ashta-Koota compatibility score, Manglik / Kuja Dosha detection, Nadi check, and Rasi harmony for prospective couples.
+- [Live Astrologers](https://astro-chat-web.vercel.app/#astrologers): Instant access to verified master practitioners of Vedic Astrology, Numerology, Tarot, and Lal Kitab with multi-language support (Tamil, Hindi, English, Kannada, Telugu).
+- [Horoscope Matrimony](https://astro-chat-web.vercel.app/#matrimony): Curated profiles of singles whose birth charts and planetary alignments are pre-screened for astrological compatibility.
+- [Private Consultation Chat](https://astro-chat-web.vercel.app/#chat): End-to-end confidential 1-on-1 chat room with instant multi-language translation (e.g. English ⇄ Tamil) and voice note support.
+- [Free Offer Gate](https://astro-chat-web.vercel.app/#offer): First chat question is 100% free with no credit card required, plus 1 month free access to personalized Kundli predictions.
+
+## Legal & Compliance Documents
+
+- [Privacy Policy](https://astro-chat-web.vercel.app/privacy): Complete transparency on user birth details, chat privacy, zero data sales, Truecaller verification, and Google Play compliance.
+- [Terms of Service](https://astro-chat-web.vercel.app/terms): Standard terms of service, acceptable use, consultation disclaimer, and digital purchase policies.
+- [Full LLM Context Guide](https://astro-chat-web.vercel.app/llms-full.txt): Comprehensive technical breakdown of all 12 mobile screens and Vedic calculation parameters.
+
+## Application Details
+
+- App Name: Astro Chat
+- Package ID: `com.astrochat.astrology`
+- Target Platform: Android
+- Pricing: Free to download, Free First Consultation, 1 Month Free Trial
+- Google Play Store: https://play.google.com/store/apps/details?id=com.astrochat.astrology
+- Official Website: https://astro-chat-web.vercel.app/
+- Developer & Grievance Contact: navirohithn2006@gmail.com

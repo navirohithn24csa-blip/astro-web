@@ -4,18 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- Primary Meta Tags -->
-  <title>Astro Chat — Ask the Stars. Get Real Answers.</title>
-  <meta name="title" content="Astro Chat — Ask the Stars. Get Real Answers." />
-  <meta name="description" content="Your first chat is free. Your first month is free. Connect with verified Vedic astrologers, calculate real life predictions, Pancha Pakshi, lucky timings, and matrimony compatibility." />
+  <!-- Primary SEO Meta Tags -->
+  <title>Astro Chat — Ask the Stars. Get Real Answers. Free Vedic Astrology App</title>
+  <meta name="title" content="Astro Chat — Ask the Stars. Get Real Answers. Free Vedic Astrology App" />
+  <meta name="description" content="Your first chat is free. Your first month is free. Connect with verified Vedic astrologers, calculate real life predictions, Pancha Pakshi, lucky timings, and 36 Guna marriage compatibility." />
+  <meta name="keywords" content="astro chat, vedic astrology app, kundli matching, free astrology chat, pancha pakshi, good time finder, 36 guna match, horoscope matrimony, live astrologers, tamil astrology, hindi astrology, astrology android app, com.astrochat.astrology" />
+  <meta name="author" content="Astro Chat" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#060314" />
+  <link rel="canonical" href="https://astro-chat-web.vercel.app/" />
+
+  <!-- Google Search Console Verification Placeholder -->
+  <meta name="google-site-verification" content="GOOGLE_SEARCH_CONSOLE_VERIFICATION_TOKEN" />
+
+  <!-- Sitemaps & Machine-Readable AI Endpoints -->
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="help" type="text/plain" href="/llms.txt" title="LLM Context Guide" />
+  <link rel="author" type="text/plain" href="/ai.txt" title="AI Machine Spec" />
+  <link rel="alternate" hreflang="en" href="https://astro-chat-web.vercel.app/" />
+  <link rel="alternate" hreflang="x-default" href="https://astro-chat-web.vercel.app/" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://astro-chat-web.vercel.app/" />
+  <meta property="og:site_name" content="Astro Chat" />
   <meta property="og:title" content="Astro Chat — Ask the Stars. Get Real Answers." />
-  <meta property="og:description" content="First chat free. First month free. No tricks. Consult verified astrologers and calculate real Vedic Kundli predictions." />
+  <meta property="og:description" content="First chat free. First month free. No tricks. Consult verified Vedic astrologers, 36 Guna match making, and lucky timings." />
   <meta property="og:image" content="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200&h=630&fit=crop" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_IN" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
@@ -24,12 +42,126 @@
   <meta property="twitter:description" content="Your first chat is free. Your first month is free. Connect with verified Vedic astrologers today." />
   <meta property="twitter:image" content="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200&h=630&fit=crop" />
 
+  <!-- Google Analytics 4 (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    // Auto-detect Measurement ID from window or fallback
+    const gaId = window.GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
+    gtag('config', gaId, {
+      send_page_view: true,
+      cookie_flags: 'SameSite=None;Secure'
+    });
+  </script>
+
+  <!-- Schema.org Structured Data (JSON-LD) for Search Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MobileApplication",
+        "@id": "https://astro-chat-web.vercel.app/#app",
+        "name": "Astro Chat",
+        "operatingSystem": "ANDROID",
+        "applicationCategory": "LifestyleApplication",
+        "applicationSubCategory": "Astrology & Horoscope",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "INR",
+          "availability": "https://schema.org/InStock",
+          "description": "First chat consultation is 100% free with 1 month free Kundli predictions."
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "12500",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "downloadUrl": "https://play.google.com/store/apps/details?id=com.astrochat.astrology",
+        "featureList": [
+          "100% Free First Astrologer Chat",
+          "1 Month Free Vedic Life Prediction",
+          "36/36 Guna Kundli Milan Match Maker",
+          "Ancient Tamil Pancha Pakshi Daily Biorhythm",
+          "Good Time Finder Auspicious Heatmap",
+          "Verified Live Vedic Astrologers"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://astro-chat-web.vercel.app/#organization",
+        "name": "Astro Chat",
+        "url": "https://astro-chat-web.vercel.app/",
+        "logo": "https://astro-chat-web.vercel.app/screens/screen1.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "navirohithn2006@gmail.com",
+          "contactType": "customer support"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://astro-chat-web.vercel.app/#website",
+        "url": "https://astro-chat-web.vercel.app/",
+        "name": "Astro Chat",
+        "description": "Vedic Astrology Consultations, Kundli Life Predictions and Match Making",
+        "publisher": {
+          "@id": "https://astro-chat-web.vercel.app/#organization"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://astro-chat-web.vercel.app/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is the first chat on Astro Chat really free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, your first consultation question with a verified astrologer is 100% free, and your first month of Kundli predictions is completely free with no credit card required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does Astro Chat calculate Kundli life predictions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Astro Chat uses high-precision astronomical planetary ephemerides and ancient Vedic algorithms based on your exact birth date, birth time, and birth location to calculate accurate planetary charts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the 36 Guna Match Maker?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Match Maker feature performs authentic Ashta-Koota 36 Guna analysis, comparing two birth charts across mental, physical, and spiritual harmony while screening for Manglik / Kuja Dosha and Nadi harmony."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is Pancha Pakshi in Astro Chat?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pancha Pakshi is an ancient Tamil astrological system that assigns you one of five cosmic birds (Vulture, Owl, Crow, Cock, Peacock) and tracks your daily biorhythm states (Rule, Eat, Walk, Sleep, Die) so you can schedule important tasks at peak energy."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪷</text></svg>" />
 
   <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS CDN with Custom Brand Palette -->

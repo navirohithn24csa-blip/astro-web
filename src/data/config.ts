@@ -24,6 +24,22 @@ export const BRAND_CONFIG = {
 };
 
 /**
+ * Safe Google Analytics 4 (GA4) Event Tracker
+ */
+export const trackAnalyticsEvent = (
+  eventName: string,
+  eventParams: Record<string, any> = {}
+) => {
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    try {
+      (window as any).gtag('event', eventName, eventParams);
+    } catch (e) {
+      // silently ignore analytics errors in dev
+    }
+  }
+};
+
+/**
  * Sample User Reviews from Google Play (Illustrative Placeholders)
  * Marked for replacement with live Google Play API / verified reviews.
  */

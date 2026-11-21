@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PLAY_STORE_URL } from '../data/config';
+import { PLAY_STORE_URL, trackAnalyticsEvent } from '../data/config';
 import { PhoneMockup } from './PhoneMockup';
 import { Screen5MatchMaker } from './screens/Screen5MatchMaker';
 import { Screen1Home } from './screens/Screen1Home';
@@ -127,6 +127,7 @@ export const HeroSection: React.FC = () => {
               href={PLAY_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackAnalyticsEvent('download_click', { location: 'hero_primary_button' })}
               className="w-full sm:w-auto px-10 py-4 rounded-full bg-gradient-to-r from-[#7026CE] via-[#8B5CF6] to-[#A855F7] hover:from-[#5B1FA8] hover:to-[#7E22CE] text-white font-black text-base shadow-[0_10px_35px_rgba(112,38,206,0.5)] border border-purple-400/40 flex items-center justify-center gap-2 hover:scale-105 transition-all"
             >
               <Download className="w-5 h-5" />

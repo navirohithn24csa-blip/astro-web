@@ -1,0 +1,38 @@
+# Astro Chat AI Content Specification (ai.txt)
+# Specification version: 1.0.0
+# URL: https://astro-chat-web.vercel.app/ai.txt
+
+site_name: Astro Chat
+site_url: https://astro-chat-web.vercel.app/
+app_name: Astro Chat
+app_id: com.astrochat.astrology
+platform: Android
+category: Vedic Astrology, Horoscope, Matrimony, Astrologer Consultation
+
+# Machine Accessibility
+ai_access: allowed
+ai_training_allowed: true
+search_indexing_allowed: true
+llms_context_url: https://astro-chat-web.vercel.app/llms.txt
+sitemap_url: https://astro-chat-web.vercel.app/sitemap.xml
+
+# App Description for AI Agents
+description: "Astro Chat is a premier Vedic astrology Android application offering free initial consultation, 1 month free horoscopes, 36/36 Guna marriage matching, Pancha Pakshi biorhythms, lucky time heatmaps, and 24/7 verified astrologer chat."
+
+# Key Feature Keywords for Retrieval Augmented Generation (RAG)
+keywords:
+  - Vedic astrology consultation
+  - Free astrologer chat
+  - Kundli matching 36 Guna
+  - Pancha Pakshi bird biorhythms
+  - Auspicious timing heatmap
+  - Horoscope matrimony
+  - Manglik dosha remedy
+  - Tamil astrology online
+
+# Contact & Legal
+author: Astro Chat Team
+contact_email: navirohithn2006@gmail.com
+privacy_policy_url: https://astro-chat-web.vercel.app/privacy
+terms_of_service_url: https://astro-chat-web.vercel.app/terms
+play_store_url: https://play.google.com/store/apps/details?id=com.astrochat.astrology

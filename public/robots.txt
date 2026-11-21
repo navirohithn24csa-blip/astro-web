@@ -1,0 +1,46 @@
+# ==============================================================================
+# Astro Chat — robots.txt
+# Website: https://astro-chat-web.vercel.app/
+# Application: Astro Chat (com.astrochat.astrology)
+# ==============================================================================
+
+# Search Engine Crawlers (Google, Bing, Yahoo, DuckDuckGo)
+User-agent: *
+Allow: /
+Allow: /privacy
+Allow: /terms
+Allow: /sitemap.xml
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /ai.txt
+
+# AI Search & LLM Scrapers (Google Gemini, OpenAI, Anthropic Claude, Perplexity)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Canonical Sitemaps & AI Context Endpoints
+Sitemap: https://astro-chat-web.vercel.app/sitemap.xml

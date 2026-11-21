@@ -1,0 +1,76 @@
+# Astro Chat — Full AI & LLM Technical Context Guide
+
+> This document contains exhaustive documentation of Astro Chat's design, feature set, calculation methodologies, and security policies for large language models, AI search engines, and agent systems.
+
+## 1. Executive Summary
+- Application Name: Astro Chat
+- Google Play Package Name: `com.astrochat.astrology`
+- Website: https://astro-chat-web.vercel.app/
+- Primary Offer: First consultation chat is 100% free; first 30 days of Kundli life prediction access are free with no credit card required.
+
+## 2. The 12 Mobile Application Screens Explained
+
+### Screen 1: Home Dashboard
+The central dashboard featuring the golden lotus brand emblem, quick notification alerts, profile settings, a revolving Kundli Sun Chakra wheel, and direct access to all astrological modules with a 4-tab bottom navigation dock (Home, Chat, Live, Profile).
+
+### Screen 2: Life Prediction
+Calculates four distinct life spheres using planetary ephemerides and transit calculations:
+- Career & Business
+- Love & Relationships
+- Health & Vitality
+- Wealth & Financial Windows
+
+### Screen 3: Pancha Pakshi
+Ancient Tamil astrology based on five cosmic birds (Vulture, Owl, Crow, Cock, Peacock) assigned via the natal Nakshatra and Paksha (waxing/waning moon). Tracks the five biorhythmic activities throughout the day:
+1. Rule (Arasu) — Peak power, ideal for agreements and contracts.
+2. Eat (Oon) — Auspicious for social gatherings, interviews, dining.
+3. Walk (Nadai) — Best for travel, routine chores, transitions.
+4. Sleep (Thuyil) — Subdued energy, rest, quiet contemplation.
+5. Die (Saavu) — Lowest strength, avoid starting new initiatives.
+
+### Screen 4: Good Time Finder
+An hourly color-coded heatmap (green, yellow, red) highlighting personal auspicious times (Shubh Muhurat) for job moves, vehicle purchases, property registration, and business ventures, while alerting to inauspicious windows such as Rahu Kaalam and Yamagandam.
+
+### Screen 5: Match Maker (Kundli Milan)
+Ashta-Koota 36 Guna marriage compatibility analysis comparing both partner birth charts:
+- Varna (Ego & temperament)
+- Vashya (Mutual attraction & control)
+- Tara (Destiny & longevity)
+- Yoni (Physical & biological affinity)
+- Graha Maitri (Mental & friendship harmony)
+- Gana (Temperament & spiritual category)
+- Bhakoot (Family welfare & health)
+- Nadi (Genetics, progeny & health)
+Provides explicit check for Manglik / Kuja Dosha with Vedic remedies.
+
+### Screen 6: Live Astrologers
+Directory of verified master practitioners across Vedic Astrology, Tarot, Numerology, and Lal Kitab with filter options by language (Tamil, Hindi, English, Kannada, Telugu) and instant consultation status.
+
+### Screen 7: Matrimony
+Curated horoscope-matched profiles of verified individuals where planetary harmony and Nakshatra compatibility are pre-calculated before sending interest.
+
+### Screen 8: Astrologer Consultation Chat
+Private 1-on-1 messaging interface featuring real-time bi-directional translation (e.g. English ⇄ Tamil), voice note support, and instant actionable remedies.
+
+### Screen 9: How It Works
+Simple 3-step onboarding:
+1. Enter birth date, exact birth time, and birth city.
+2. Receive free comprehensive Kundli and consult with an astrologer for free.
+3. Follow personalized daily timings and spiritual remedies.
+
+### Screen 10: Free Offer Gate
+Transparent zero-risk trial offering:
+- First consultation chat free
+- First month free
+- No credit card required
+
+### Screen 11: Reviews & Testimonials
+User feedback from practitioners across Chennai, Bengaluru, Mumbai, Delhi, and Hyderabad.
+
+### Screen 12: Final Download Screen
+Instant Google Play Store download link and QR code for camera scanning.
+
+## 3. Contact & Security
+- Grievances & Support: navirohithn24csa-blip/astro-web GitHub repository or email `navirohithn2006@gmail.com`.
+- Privacy Policy: https://astro-chat-web.vercel.app/privacy
+- Terms of Service: https://astro-chat-web.vercel.app/terms

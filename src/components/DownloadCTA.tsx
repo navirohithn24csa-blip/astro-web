@@ -1,5 +1,5 @@
 import React from 'react';
-import { PLAY_STORE_URL } from '../data/config';
+import { PLAY_STORE_URL, trackAnalyticsEvent } from '../data/config';
 import { PhoneMockup } from './PhoneMockup';
 import { Screen12Download } from './screens/Screen12Download';
 import { QrCode, CheckCircle2 } from 'lucide-react';
@@ -56,6 +56,7 @@ export const DownloadCTA: React.FC = () => {
                 href={PLAY_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackAnalyticsEvent('download_click', { location: 'footer_download_cta' })}
                 className="flex items-center gap-3 bg-[#14082e] hover:bg-[#1f0d45] text-white px-6 py-4 rounded-2xl border border-purple-500/40 transition shadow-lg hover:scale-105"
               >
                 <svg className="w-7 h-7 shrink-0" viewBox="0 0 24 24">
