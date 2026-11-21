@@ -1,566 +1,64 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AstroChat - Live Astrologer Guidance & AI Celestial Wisdom</title>
-  <meta name="description" content="Connect with verified Vedic & Western Astrologers, AI birth chart readings, live tarot spreads, and daily horoscopes on AstroChat.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>Astro Chat — Ask the Stars. Get Real Answers.</title>
+  <meta name="title" content="Astro Chat — Ask the Stars. Get Real Answers." />
+  <meta name="description" content="Your first chat is free. Your first month is free. Connect with verified Vedic astrologers, calculate real life predictions, Pancha Pakshi, lucky timings, and matrimony compatibility." />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://astro-chat-web.vercel.app/" />
+  <meta property="og:title" content="Astro Chat — Ask the Stars. Get Real Answers." />
+  <meta property="og:description" content="First chat free. First month free. No tricks. Consult verified astrologers and calculate real Vedic Kundli predictions." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200&h=630&fit=crop" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://astro-chat-web.vercel.app/" />
+  <meta property="twitter:title" content="Astro Chat — Ask the Stars. Get Real Answers." />
+  <meta property="twitter:description" content="Your first chat is free. Your first month is free. Connect with verified Vedic astrologers today." />
+  <meta property="twitter:image" content="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200&h=630&fit=crop" />
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪷</text></svg>" />
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN with Custom Brand Palette -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            cosmic: {
-              950: '#04060d',
-              900: '#060814',
-              800: '#0b0f26',
-              700: '#141838',
-              gold: '#f59e0b',
-              starlight: '#67e8f9'
+            brand: {
+              purple: '#7026CE',
+              purpleLight: '#A855F7',
+              lavender: '#F5EFFF',
+              pink: '#FFF0F5',
+              yellow: '#FFF8E7',
+              gold: '#F5C26B',
+              green: '#18A558',
+              dark: '#151515'
             }
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
           }
         }
       }
     }
   </script>
-
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-[#060814] text-slate-100 flex flex-col min-h-screen">
-
-  <!-- Interactive Cosmic Canvas & Glowing Ambient Nebulae -->
-  <canvas id="cosmic-canvas"></canvas>
-  <div class="nebula-glow nebula-1"></div>
-  <div class="nebula-glow nebula-2"></div>
-  <div class="nebula-glow nebula-3"></div>
-
-  <!-- NAVIGATION HEADER -->
-  <header class="glass-nav sticky top-0 z-40 px-4 sm:px-6 py-3 transition-all">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-      
-      <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-amber-500 p-0.5 shadow-lg shadow-purple-600/30 group-hover:scale-105 transition">
-          <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
-            <span class="text-xl">🔮</span>
-          </div>
-        </div>
-        <div>
-          <div class="flex items-center gap-2">
-            <span class="font-display text-xl font-bold tracking-wider bg-gradient-to-r from-amber-200 via-purple-200 to-amber-400 bg-clip-text text-transparent">ASTROCHAT</span>
-            <span class="text-[10px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">AI Live</span>
-          </div>
-          <p class="text-[10px] text-purple-300 tracking-tight hidden sm:block">Celestial Wisdom & Astrologer Consultations</p>
-        </div>
-      </a>
-
-      <!-- Desktop Nav Tabs -->
-      <nav class="hidden lg:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-2xl border border-purple-500/20 backdrop-blur-md">
-        <button data-nav-tab="chat" class="px-3.5 py-1.5 rounded-xl text-xs font-medium border transition-all flex items-center gap-1.5 bg-purple-600/30 text-amber-300 border-purple-400/40">
-          <span>💬</span> Chat Consultation
-        </button>
-        <button data-nav-tab="horoscope" class="px-3.5 py-1.5 rounded-xl text-xs font-medium border border-transparent text-slate-400 hover:text-white transition-all flex items-center gap-1.5">
-          <span>🌟</span> Horoscopes
-        </button>
-        <button data-nav-tab="kundli" class="px-3.5 py-1.5 rounded-xl text-xs font-medium border border-transparent text-slate-400 hover:text-white transition-all flex items-center gap-1.5">
-          <span>📜</span> Kundli Chart
-        </button>
-        <button data-nav-tab="compatibility" class="px-3.5 py-1.5 rounded-xl text-xs font-medium border border-transparent text-slate-400 hover:text-white transition-all flex items-center gap-1.5">
-          <span>❤️</span> Love Synergy
-        </button>
-        <button data-nav-tab="tarot" class="px-3.5 py-1.5 rounded-xl text-xs font-medium border border-transparent text-slate-400 hover:text-white transition-all flex items-center gap-1.5">
-          <span>🎴</span> Tarot Oracle
-        </button>
-        <button data-nav-tab="astrologers" class="px-3.5 py-1.5 rounded-xl text-xs font-medium border border-transparent text-slate-400 hover:text-white transition-all flex items-center gap-1.5">
-          <span>🧙‍♂️</span> Astrologers
-        </button>
-        <button data-nav-tab="transits" class="px-3.5 py-1.5 rounded-xl text-xs font-medium border border-transparent text-slate-400 hover:text-white transition-all flex items-center gap-1.5">
-          <span>🪐</span> Transits
-        </button>
-      </nav>
-
-      <!-- Action Utilities -->
-      <div class="flex items-center gap-2">
-        <button id="toggle-sound-btn" class="w-9 h-9 rounded-xl bg-purple-950/40 hover:bg-purple-900/60 border border-purple-500/30 text-amber-300 flex items-center justify-center text-sm transition" title="Toggle Cosmic Sounds">
-          🔔
-        </button>
-        <button id="settings-btn" class="w-9 h-9 rounded-xl bg-purple-950/40 hover:bg-purple-900/60 border border-purple-500/30 text-purple-200 hover:text-white flex items-center justify-center text-sm transition" title="Preferences & Gemini API Key">
-          ⚙️
-        </button>
-        <button id="start-call-btn" class="hidden sm:flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold text-xs shadow-lg shadow-amber-500/20 transition hover:scale-105">
-          <span>📞</span> Call Astrologer
-        </button>
-
-        <!-- Mobile Menu Trigger -->
-        <button id="mobile-menu-btn" class="lg:hidden w-9 h-9 rounded-xl bg-purple-950/50 border border-purple-500/30 text-purple-200 flex items-center justify-center text-base">
-          ☰
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- MOBILE NAVIGATION DRAWER -->
-  <div id="mobile-nav-drawer" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl p-6 hidden flex flex-col justify-between">
-    <div>
-      <div class="flex items-center justify-between pb-6 border-b border-white/10">
-        <div class="flex items-center gap-2">
-          <span class="text-2xl">🔮</span>
-          <span class="font-display font-bold text-lg text-amber-300">AstroChat</span>
-        </div>
-        <button id="close-mobile-nav" class="text-slate-400 hover:text-white text-xl p-2">✕</button>
-      </div>
-      <div class="grid grid-cols-1 gap-2 mt-6">
-        <button data-nav-tab="chat" class="p-3 text-left rounded-xl bg-purple-900/30 text-amber-300 border border-purple-500/30 font-medium text-sm flex items-center gap-3">
-          <span>💬</span> Live Astro Chat
-        </button>
-        <button data-nav-tab="horoscope" class="p-3 text-left rounded-xl hover:bg-white/5 text-slate-200 font-medium text-sm flex items-center gap-3">
-          <span>🌟</span> Daily Horoscopes
-        </button>
-        <button data-nav-tab="kundli" class="p-3 text-left rounded-xl hover:bg-white/5 text-slate-200 font-medium text-sm flex items-center gap-3">
-          <span>📜</span> Janam Kundli Generator
-        </button>
-        <button data-nav-tab="compatibility" class="p-3 text-left rounded-xl hover:bg-white/5 text-slate-200 font-medium text-sm flex items-center gap-3">
-          <span>❤️</span> Love Compatibility
-        </button>
-        <button data-nav-tab="tarot" class="p-3 text-left rounded-xl hover:bg-white/5 text-slate-200 font-medium text-sm flex items-center gap-3">
-          <span>🎴</span> 3-Card Tarot Spread
-        </button>
-        <button data-nav-tab="astrologers" class="p-3 text-left rounded-xl hover:bg-white/5 text-slate-200 font-medium text-sm flex items-center gap-3">
-          <span>🧙‍♂️</span> Top Astrologers Directory
-        </button>
-        <button data-nav-tab="transits" class="p-3 text-left rounded-xl hover:bg-white/5 text-slate-200 font-medium text-sm flex items-center gap-3">
-          <span>🪐</span> Live Planetary Transits
-        </button>
-      </div>
-    </div>
-    <div class="pt-6 border-t border-white/10 text-center text-xs text-slate-400">
-      AstroChat • Ready for Vercel Deployment
-    </div>
-  </div>
-
-  <!-- MAIN APP CONTAINER -->
-  <main class="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-6 relative z-10">
-
-    <!-- ==========================================
-         TAB 1: LIVE ASTRO CHAT (Primary View)
-         ========================================== -->
-    <section id="pane-chat" class="tab-pane active">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 h-[calc(100vh-130px)] min-h-[600px]">
-
-        <!-- Sidebar: Astrologers Directory Selection (Desktop) -->
-        <aside class="hidden lg:flex lg:col-span-4 flex-col glass-panel rounded-3xl p-4 overflow-hidden">
-          <div class="flex items-center justify-between pb-3 mb-2 border-b border-purple-500/20">
-            <div>
-              <h3 class="text-sm font-bold text-white uppercase tracking-wider">Available Astrologers</h3>
-              <p class="text-[11px] text-purple-300">Choose your specialist guide</p>
-            </div>
-            <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> 5 Active
-            </span>
-          </div>
-
-          <!-- Astrologers List -->
-          <div id="astrologer-sidebar-list" class="flex-1 overflow-y-auto space-y-2 pr-1">
-            <!-- Dynamically Populated by app.js -->
-          </div>
-
-          <!-- Quick Promo Banner -->
-          <div class="mt-3 p-3 rounded-2xl bg-gradient-to-r from-amber-500/20 via-purple-600/20 to-transparent border border-amber-500/30">
-            <div class="flex items-center gap-2">
-              <span class="text-xl">✨</span>
-              <div class="text-[11px] text-slate-200">
-                <span class="font-bold text-amber-300">First 5 Mins Free:</span> Ask your burning question to any certified astrologer.
-              </div>
-            </div>
-          </div>
-        </aside>
-
-        <!-- Main Chat Stream Column -->
-        <section class="lg:col-span-8 flex flex-col glass-panel rounded-3xl overflow-hidden shadow-2xl relative">
-          
-          <!-- Chat Header -->
-          <div class="px-4 py-3 sm:px-6 bg-slate-900/80 border-b border-purple-500/20 flex items-center justify-between backdrop-blur-md">
-            <div class="flex items-center gap-3">
-              <div class="relative">
-                <img id="active-astro-avatar" src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&h=200&fit=crop" alt="Astrologer" class="w-11 h-11 rounded-full object-cover border-2 border-amber-400/60 shadow-md">
-                <span id="active-astro-status-dot" class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-400 ring-2 ring-slate-950"></span>
-              </div>
-              <div>
-                <div class="flex items-center gap-2">
-                  <h3 id="active-astro-name" class="text-sm sm:text-base font-bold text-white">Pandit Aarav Sharma</h3>
-                  <span id="active-astro-rate" class="text-[10px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold border border-amber-500/30">₹35/min</span>
-                </div>
-                <p id="active-astro-title" class="text-xs text-purple-300">Vedic Astrologer & Kundli Grandmaster</p>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-1.5">
-              <button onclick="window.startAstroCallModal(window.astroChat.activeAstrologerId)" class="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-purple-900/40 hover:bg-purple-800/60 border border-purple-500/30 text-amber-300 text-xs font-semibold flex items-center gap-1.5 transition" title="Start Live Audio Consultation">
-                <span>📞</span> <span class="hidden sm:inline">Call</span>
-              </button>
-              <button id="export-chat-btn" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 text-xs transition" title="Export Consultation Text">
-                📥
-              </button>
-              <button id="clear-chat-btn" class="p-2 rounded-xl bg-white/5 hover:bg-rose-900/30 text-slate-300 hover:text-rose-300 text-xs transition" title="Clear Consultation History">
-                🗑️
-              </button>
-            </div>
-          </div>
-
-          <!-- Chat Messages Body -->
-          <div id="chat-messages" class="flex-1 p-4 sm:p-6 overflow-y-auto space-y-4">
-            <!-- Messages rendered dynamically -->
-          </div>
-
-          <!-- Typing Indicator -->
-          <div id="typing-indicator" class="hidden px-6 py-2 bg-slate-900/40 items-center gap-3 border-t border-purple-500/10">
-            <div class="dot-flashing ml-3"></div>
-            <span id="typing-astro-name" class="text-xs text-amber-300 ml-4 font-mono-astro">Astrologer is consulting the ephemeris...</span>
-          </div>
-
-          <!-- Quick Suggestion Chips Bar -->
-          <div class="px-4 py-2 bg-slate-950/50 border-t border-purple-500/20 flex gap-2 overflow-x-auto no-scrollbar text-xs">
-            <button onclick="window.astroChat.handleUserSendMessage('What are my major relationship and marriage prospects for 2026?')" class="flex-shrink-0 px-3 py-1.5 rounded-full bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/30 text-purple-200 transition hover:scale-105">
-              🔮 2026 Marriage & Love
-            </button>
-            <button onclick="window.astroChat.handleUserSendMessage('Analyze my career transit and upcoming job promotion timing.')" class="flex-shrink-0 px-3 py-1.5 rounded-full bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/30 text-purple-200 transition hover:scale-105">
-              💼 Career Transit & Promotion
-            </button>
-            <button onclick="window.astroChat.handleUserSendMessage('Draw a Tarot card for my current situation.')" class="flex-shrink-0 px-3 py-1.5 rounded-full bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/30 text-purple-200 transition hover:scale-105">
-              🎴 Draw a Tarot Card
-            </button>
-            <button onclick="window.astroChat.handleUserSendMessage('Check my Shani Sade Sati status and remedies.')" class="flex-shrink-0 px-3 py-1.5 rounded-full bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/30 text-purple-200 transition hover:scale-105">
-              🪐 Sade Sati Remedies
-            </button>
-            <button onclick="window.astroChat.handleUserSendMessage('What is my lucky gemstone and how should I wear it?')" class="flex-shrink-0 px-3 py-1.5 rounded-full bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/30 text-purple-200 transition hover:scale-105">
-              💎 Lucky Gemstone
-            </button>
-          </div>
-
-          <!-- Chat Input Form -->
-          <form id="chat-form" class="p-3 sm:p-4 bg-slate-900/90 border-t border-purple-500/20 flex items-center gap-2 backdrop-blur-md">
-            <button type="button" id="mic-btn" class="w-10 h-10 rounded-xl bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/30 text-purple-200 flex items-center justify-center text-base transition flex-shrink-0" title="Voice Input (Speech to Text)">
-              🎤
-            </button>
-            
-            <input type="text" id="chat-input" placeholder="Ask about love, job promotion, kundli dosha, or draw tarot..." autocomplete="off" class="flex-1 bg-slate-950/70 border border-purple-500/30 rounded-xl px-4 py-2.5 text-sm sm:text-base text-white placeholder-slate-400 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition">
-
-            <button type="submit" class="px-4 sm:px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-amber-500 hover:from-purple-500 hover:to-amber-400 text-white font-bold text-sm shadow-lg shadow-purple-900/40 flex items-center gap-2 transition hover:scale-105 flex-shrink-0">
-              <span>Send</span>
-              <span>✦</span>
-            </button>
-          </form>
-        </section>
-      </div>
-    </section>
-
-    <!-- ==========================================
-         TAB 2: HOROSCOPES (12 Zodiacs & Insights)
-         ========================================== -->
-    <section id="pane-horoscope" class="tab-pane hidden space-y-6">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Astrological Forecast</span>
-          <h2 class="text-2xl sm:text-3xl font-display font-bold text-white">Daily Zodiac Horoscopes</h2>
-        </div>
-
-        <!-- Period Filter -->
-        <div class="inline-flex p-1 rounded-xl bg-slate-900/80 border border-purple-500/30 backdrop-blur-md self-start sm:self-auto">
-          <button data-period="today" class="px-4 py-1.5 rounded-lg text-xs font-semibold bg-purple-600 text-white transition">Today</button>
-          <button data-period="tomorrow" class="px-4 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">Tomorrow</button>
-          <button data-period="weekly" class="px-4 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">Weekly</button>
-          <button data-period="monthly" class="px-4 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">Monthly</button>
-        </div>
-      </div>
-
-      <!-- Active Selected Horoscope Detail Box -->
-      <div id="horoscope-detail-box">
-        <!-- Rendered by app.js -->
-      </div>
-
-      <!-- 12 Signs Grid -->
-      <div>
-        <h3 class="text-sm font-bold text-slate-300 uppercase tracking-wider mb-3">Select Your Zodiac Sign</h3>
-        <div id="zodiac-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-          <!-- Rendered by app.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================
-         TAB 3: JANAM KUNDLI (Vedic Birth Chart)
-         ========================================== -->
-    <section id="pane-kundli" class="tab-pane hidden space-y-6">
-      <div>
-        <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Vedic Jyotish Calculations</span>
-        <h2 class="text-2xl sm:text-3xl font-display font-bold text-white">Janam Kundli & Dosha Analyzer</h2>
-        <p class="text-xs sm:text-sm text-purple-200 mt-1">Generate your authentic North Indian Vedic birth chart, Lagna, Rashi, and planetary aspects.</p>
-      </div>
-
-      <!-- Input Form Card -->
-      <div class="glass-panel rounded-3xl p-6">
-        <form id="kundli-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div>
-            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Full Name</label>
-            <input type="text" id="kundli-name" value="Seeker" required class="w-full bg-slate-900 border border-purple-500/30 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Date of Birth</label>
-            <input type="date" id="kundli-dob" value="1998-05-15" required class="w-full bg-slate-900 border border-purple-500/30 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Time of Birth</label>
-            <input type="time" id="kundli-tob" value="14:30" required class="w-full bg-slate-900 border border-purple-500/30 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Birth City / Country</label>
-            <input type="text" id="kundli-city" value="New Delhi, India" required class="w-full bg-slate-900 border border-purple-500/30 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
-          </div>
-          <div class="sm:col-span-2 lg:col-span-4 flex justify-end">
-            <button type="submit" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-amber-500 hover:from-purple-500 hover:to-amber-400 text-white font-bold text-xs sm:text-sm shadow-lg transition hover:scale-105">
-              <span>✦ Generate Vedic Kundli Chart</span>
-            </button>
-          </div>
-        </form>
-      </div>
-
-      <!-- Generated Kundli Result Container -->
-      <div id="kundli-result-box">
-        <!-- Rendered by app.js -->
-      </div>
-    </section>
-
-    <!-- ==========================================
-         TAB 4: LOVE COMPATIBILITY (Synastry Match)
-         ========================================== -->
-    <section id="pane-compatibility" class="tab-pane hidden space-y-6">
-      <div>
-        <span class="text-xs uppercase tracking-widest text-pink-400 font-bold">Zodiac Synastry</span>
-        <h2 class="text-2xl sm:text-3xl font-display font-bold text-white">Cosmic Love Compatibility Matcher</h2>
-        <p class="text-xs sm:text-sm text-purple-200 mt-1">Discover elemental chemistry, communication synergy, and marriage potential between two souls.</p>
-      </div>
-
-      <!-- Dual Sign Selector Card -->
-      <div class="glass-panel rounded-3xl p-6">
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
-          <div class="md:col-span-2">
-            <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">First Person (Your Sign)</label>
-            <select id="compat-sign-1" class="w-full bg-slate-900 border border-purple-500/30 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-400">
-              <!-- Populated by JS -->
-            </select>
-          </div>
-
-          <div class="flex justify-center text-center">
-            <div class="w-12 h-12 rounded-full bg-purple-900/60 border border-pink-500/40 flex items-center justify-center text-xl shadow-lg">
-              ❤️
-            </div>
-          </div>
-
-          <div class="md:col-span-2">
-            <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Second Person (Partner's Sign)</label>
-            <select id="compat-sign-2" class="w-full bg-slate-900 border border-purple-500/30 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-400">
-              <!-- Populated by JS -->
-            </select>
-          </div>
-        </div>
-
-        <div class="mt-6 flex justify-center">
-          <button id="calc-compat-btn" class="px-8 py-3 rounded-xl bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:from-pink-500 hover:to-indigo-500 text-white font-bold text-sm shadow-lg shadow-pink-900/40 transition hover:scale-105">
-            Calculate Synergy Matrix
-          </button>
-        </div>
-      </div>
-
-      <!-- Result Container -->
-      <div id="compat-result-box">
-        <!-- Rendered by app.js -->
-      </div>
-    </section>
-
-    <!-- ==========================================
-         TAB 5: TAROT ORACLE (3-Card Spread)
-         ========================================== -->
-    <section id="pane-tarot" class="tab-pane hidden space-y-6">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Mystic Major Arcana</span>
-          <h2 class="text-2xl sm:text-3xl font-display font-bold text-white">Daily 3-Card Tarot Oracle</h2>
-          <p class="text-xs sm:text-sm text-purple-200 mt-1">Tap each card to flip and reveal your Past Foundation, Present Crucible, and Future Horizon.</p>
-        </div>
-
-        <button id="shuffle-tarot-btn" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-amber-500 hover:from-purple-500 hover:to-amber-400 text-white font-bold text-xs shadow-lg transition hover:scale-105 self-start sm:self-auto flex items-center gap-2">
-          <span>🔄 Shuffle Sacred Deck</span>
-        </button>
-      </div>
-
-      <!-- 3 Tarot Cards Deck Container -->
-      <div id="tarot-cards-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center my-6">
-        <!-- Rendered dynamically by app.js -->
-      </div>
-
-      <!-- Synthesis Box -->
-      <div id="tarot-synthesis" class="hidden">
-        <!-- Rendered dynamically by app.js -->
-      </div>
-    </section>
-
-    <!-- ==========================================
-         TAB 6: ASTROLOGERS DIRECTORY
-         ========================================== -->
-    <section id="pane-astrologers" class="tab-pane hidden space-y-6">
-      <div>
-        <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Certified Astrologers & Masters</span>
-        <h2 class="text-2xl sm:text-3xl font-display font-bold text-white">Consult Our Verified Astrologers</h2>
-        <p class="text-xs sm:text-sm text-purple-200 mt-1">Experienced Vedic Jyotish, Western Evolutionary Astrologers, Tarot Grandmasters, and Numerologists.</p>
-      </div>
-
-      <div id="astrologers-directory-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Rendered dynamically by app.js -->
-      </div>
-    </section>
-
-    <!-- ==========================================
-         TAB 7: LIVE PLANETARY TRANSITS
-         ========================================== -->
-    <section id="pane-transits" class="tab-pane hidden space-y-6">
-      <div>
-        <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold">Realtime Ephemeris</span>
-        <h2 class="text-2xl sm:text-3xl font-display font-bold text-white">Live Planetary Transits & Retrogrades</h2>
-        <p class="text-xs sm:text-sm text-purple-200 mt-1">Current positions of luminaries and celestial bodies influencing collective consciousness.</p>
-      </div>
-
-      <div id="planetary-transits-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Rendered dynamically by app.js -->
-      </div>
-    </section>
-  </main>
-
-  <!-- ==========================================
-       SIMULATED LIVE CONSULTATION CALL MODAL
-       ========================================== -->
-  <div id="call-modal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-2xl hidden items-center justify-center p-4">
-    <div class="w-full max-w-sm rounded-3xl bg-gradient-to-b from-slate-900 to-purple-950 border border-amber-500/40 p-6 flex flex-col items-center text-center shadow-2xl relative overflow-hidden">
-      <!-- Animated Celestial Rings -->
-      <div class="absolute -top-20 -left-20 w-48 h-48 rounded-full bg-purple-600/20 filter blur-2xl"></div>
-      <div class="absolute -bottom-20 -right-20 w-48 h-48 rounded-full bg-amber-500/20 filter blur-2xl"></div>
-
-      <span class="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-full bg-purple-900/60 text-purple-300 border border-purple-500/30 mb-4">
-        Celestial Encrypted Call
-      </span>
-
-      <!-- Avatar with pulsing rings -->
-      <div class="relative my-4">
-        <div class="absolute inset-0 rounded-full bg-amber-400/30 animate-ping"></div>
-        <img id="call-astro-avatar" src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&h=200&fit=crop" alt="Astrologer" class="relative w-24 h-24 rounded-full object-cover border-4 border-amber-400 shadow-2xl">
-      </div>
-
-      <h3 id="call-astro-name" class="text-lg font-bold text-white mt-2">Pandit Aarav Sharma</h3>
-      <p id="call-astro-title" class="text-xs text-purple-300">Vedic Astrologer & Kundli Grandmaster</p>
-      <p id="call-status" class="text-xs text-amber-300 font-mono-astro mt-2">Connecting celestial line...</p>
-
-      <!-- Dynamic Voice Wave Simulation -->
-      <div class="flex items-center justify-center gap-1.5 h-10 w-full my-6">
-        <div class="w-1 bg-amber-400 rounded-full audio-wave-bar" style="animation-delay: 0.1s"></div>
-        <div class="w-1 bg-purple-400 rounded-full audio-wave-bar" style="animation-delay: 0.3s"></div>
-        <div class="w-1 bg-cyan-400 rounded-full audio-wave-bar" style="animation-delay: 0.5s"></div>
-        <div class="w-1 bg-amber-300 rounded-full audio-wave-bar" style="animation-delay: 0.2s"></div>
-        <div class="w-1 bg-purple-300 rounded-full audio-wave-bar" style="animation-delay: 0.4s"></div>
-      </div>
-
-      <!-- Call Action Controls -->
-      <div class="flex items-center justify-center gap-6 mt-2">
-        <button class="w-12 h-12 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center text-lg text-slate-300 hover:bg-slate-700 transition" title="Mute Microphone">
-          🔇
-        </button>
-        <button id="end-call-btn" class="w-14 h-14 rounded-full bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center text-xl shadow-lg shadow-rose-600/40 transition hover:scale-110" title="End Call">
-          📞
-        </button>
-        <button class="w-12 h-12 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center text-lg text-slate-300 hover:bg-slate-700 transition" title="Speaker Mode">
-          🔊
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==========================================
-       SETTINGS MODAL (Gemini Key & Profile)
-       ========================================== -->
-  <div id="settings-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="w-full max-w-md rounded-3xl bg-slate-900 border border-purple-500/30 p-6 shadow-2xl space-y-4">
-      <div class="flex items-center justify-between pb-3 border-b border-purple-500/20">
-        <h3 class="text-base font-bold text-white flex items-center gap-2">
-          <span>⚙️</span> Cosmic Settings
-        </h3>
-        <button id="close-settings-btn" class="text-slate-400 hover:text-white">✕</button>
-      </div>
-
-      <div class="space-y-3">
-        <div>
-          <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Your Name</label>
-          <input type="text" id="user-name-input" placeholder="Your Name" class="w-full bg-slate-950 border border-purple-500/30 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-amber-400">
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Your Primary Zodiac Sign</label>
-          <select id="user-zodiac-select" class="w-full bg-slate-950 border border-purple-500/30 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-amber-400">
-            <!-- Populated by JS -->
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">
-            Google Gemini API Key <span class="text-[10px] text-amber-400 normal-case font-normal">(Optional for Unlimited LLM mode)</span>
-          </label>
-          <input type="password" id="gemini-api-key-input" placeholder="AIzaSy..." class="w-full bg-slate-950 border border-purple-500/30 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-amber-400">
-          <p class="text-[10px] text-slate-400 mt-1">
-            Leave blank to use the smart built-in astrological intelligence. On Vercel, you can also set <code class="text-purple-300">GEMINI_API_KEY</code> in environment variables!
-          </p>
-        </div>
-      </div>
-
-      <div class="pt-3 border-t border-purple-500/20 flex justify-end gap-2">
-        <button id="save-settings-btn" class="px-5 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-amber-500 hover:from-purple-500 hover:to-amber-400 text-white font-bold text-xs shadow-lg transition">
-          Save Preferences
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="mt-auto border-t border-purple-500/10 py-6 px-4 text-center text-xs text-slate-400 relative z-10">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-      <div class="flex items-center gap-2">
-        <span>🔮</span>
-        <span class="font-display font-bold text-slate-200">AstroChat</span>
-        <span>— Celestial Guidance & Realtime Consultations</span>
-      </div>
-      <div class="flex flex-wrap items-center justify-center gap-3 text-slate-400">
-        <a href="privacy.html" class="hover:text-amber-400 transition underline underline-offset-4 decoration-purple-500/40">Privacy Policy</a>
-        <span>•</span>
-        <a href="terms.html" class="hover:text-amber-400 transition underline underline-offset-4 decoration-purple-500/40">Terms of Service</a>
-        <span>•</span>
-        <span>Vedic & Western Ephemeris</span>
-        <span>•</span>
-        <span class="text-amber-400">© 2026 AstroChat</span>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="js/astrology-data.js"></script>
-  <script src="js/cosmic-bg.js"></script>
-  <script src="js/astro-chat.js"></script>
-  <script src="js/app.js"></script>
+<body class="bg-white text-[#151515] antialiased">
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
